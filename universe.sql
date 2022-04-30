@@ -471,27 +471,27 @@ ALTER TABLE ONLY public.rest
 
 
 --
--- Name: star fk; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: star galaxy_id; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.star
-    ADD CONSTRAINT fk FOREIGN KEY (galaxy_id) REFERENCES public.galaxy(galaxy_id);
+    ADD CONSTRAINT galaxy_id FOREIGN KEY (galaxy_id) REFERENCES public.galaxy(galaxy_id);
 
 
 --
--- Name: planet fk; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.planet
-    ADD CONSTRAINT fk FOREIGN KEY (star_id) REFERENCES public.star(star_id);
-
-
---
--- Name: moon fk; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: moon planet_id; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.moon
-    ADD CONSTRAINT fk FOREIGN KEY (planet_id) REFERENCES public.planet(planet_id);
+    ADD CONSTRAINT planet_id FOREIGN KEY (planet_id) REFERENCES public.planet(planet_id);
+
+
+--
+-- Name: planet star_id; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT star_id FOREIGN KEY (star_id) REFERENCES public.star(star_id);
 
 
 --
